@@ -12,25 +12,25 @@ const CONTENT = [
         title: "Qoutes",
         image: BoyWithLaptop,
         icon: <FaBookOpen className="duration-300 text-[2rem] ms-16 content-card-shape-icon"/>,
-        description: "Choosing the right fonts for a portfolio website is crucial as it can greatly affect the overall aesthetic and readability. Here are some font pairings and styles that work well for portfolio websites. Choosing the right fonts for a portfolio website is crucial as it can greatly affect the overall aesthetic and readability.",
+        description: "Choosing the right fonts for a portfolio website is crucial as it can greatly affect the overall aesthetic and readability. Here are some font pairings and styles that work well for portfolio websites. "
     },
     {
         title: "Writings",
         image: GirlWithBooks,
         icon: <FaBook className="duration-300 text-[1.5rem] text-white ms-16 md:ms-8 content-card-shape-icon"/>,
-        description: "Choosing the right fonts for a portfolio website is crucial as it can greatly affect the overall aesthetic and readability. Here are some font pairings and styles that work well for portfolio websites. Choosing the right fonts for a portfolio website is crucial as it can greatly affect the overall aesthetic and readability.",
+        description: "Choosing the right fonts for a portfolio website is crucial as it can greatly affect the overall aesthetic and readability. Here are some font pairings and styles that work well for portfolio websites. "
     },
     {
         title: "Self-development",
         image: FormalGirl,
         icon: <FaMoon className="duration-300 text-[1.5rem] text-white ms-16 md:ms-8 content-card-shape-icon"/>,
-        description: "Choosing the right fonts for a portfolio website is crucial as it can greatly affect the overall aesthetic and readability. Here are some font pairings and styles that work well for portfolio websites. Choosing the right fonts for a portfolio website is crucial as it can greatly affect the overall aesthetic and readability.",
+        description: "Choosing the right fonts for a portfolio website is crucial as it can greatly affect the overall aesthetic and readability. Here are some font pairings and styles that work well for portfolio websites."
     },
     {
         title: "Awareness",
         image: BoyWithBook,
         icon: <FaSun className="duration-300 text-[2rem] ms-16 content-card-shape-icon"/>,
-        description: "Choosing the right fonts for a portfolio website is crucial as it can greatly affect the overall aesthetic and readability. Here are some font pairings and styles that work well for portfolio websites. Choosing the right fonts for a portfolio website is crucial as it can greatly affect the overall aesthetic and readability.",
+        description: "Choosing the right fonts for a portfolio website is crucial as it can greatly affect the overall aesthetic and readability. Here are some font pairings and styles that work well for portfolio websites." 
     },
 ];
 

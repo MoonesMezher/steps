@@ -52,7 +52,7 @@ const Header = () => {
     }, []);
 
     return (
-        <header className={`w-full fixed left-0 top-0 z-10 duration-500 ${scroll? 'bg-__yellow shadow-md':'bg-transparent'}`}>
+        <header className={`w-full fixed left-0 top-0 z-[100] duration-500 ${scroll? 'bg-__yellow shadow-md':'bg-transparent'}`}>
             <div className="w-full flex justify-between items-center mx-auto container py-3">
                 <span className="text-[2rem]">LOGO</span>
                 <ul className="justify-center items-center gap-5 hidden md:flex">
@@ -67,7 +67,7 @@ const Header = () => {
                     <LanguageChanger/>
                 </ul>
             </div>
-            <div className={`p-1 bg-black rounded-full flex justify-center items-center w-[50px] h-[50px] overflow-hidden shadow-md fixed ${scrollToTop? 'right-[20px] bottom-[10px] opacity-100 scale-100': 'right-[-50px] bottom-[-40px] opacity-0 scale-0'} z-10 border-[3px] border-solid border-black cursor-pointer duration-300 hover:bg-__yellow scroll-to-top-btn`} onClick={() => window.scrollTo(0, 0)}>
+            <div className={`p-1 bg-black rounded-full flex justify-center items-center w-[50px] h-[50px] overflow-hidden shadow-md fixed ${scrollToTop? 'right-[20px] bottom-[10px] opacity-100 scale-100': 'right-[-50px] bottom-[-40px] opacity-0 scale-0'} z-[100] border-[3px] border-solid border-black cursor-pointer duration-300 hover:bg-__yellow scroll-to-top-btn`} onClick={() => window.scrollTo(0, 0)}>
                 <FaArrowUp className="text-white text-[1.3rem] scroll-to-top-icon"/>
             </div>
         </header>
