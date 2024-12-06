@@ -1,0 +1,14 @@
+.content-card:hover .content-card-shape  {
+    right: 85%;
+    background-color: white;
+    transform: rotate(90deg);
+}
+
+.content-card:hover .content-card-shape-icon ,
+.content-card:hover .content-card-see-more {
+    opacity: 0;
+}
+
+.content-card:hover .content-card-description {
+    opacity: 100%;
+}
