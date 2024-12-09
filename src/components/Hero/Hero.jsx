@@ -1,15 +1,16 @@
 import { FaInstagram, FaWhatsapp } from 'react-icons/fa6'
 import Phone from '../../assets/images/phone.png'
-import Help from '../../assets/images/help.jpeg'
-import Idea from '../../assets/images/idea.jpeg'
+import Img1 from '../../assets/images/world.jpeg'
+import Img2 from '../../assets/images/toghter2.jpeg'
 import './Hero.css'
 import { useEffect, useState } from 'react'
 import ScrollAnimation from 'react-animate-on-scroll'
 import Extra from '../shared/Extra/Extra'
+import { useTranslation } from 'react-i18next'
 
 const SLIDES = [
-    Help,
-    Idea
+    Img1,
+    Img2
 ];
 
 const LINKS = [
@@ -44,6 +45,8 @@ const Hero = () => {
         return () => clearInterval(counter);
     }, []);
 
+    const { t } = useTranslation();
+
     return (
         <section className="mb-[8px] flex flex-col justify-center h-[98vh]" id="home">
             <div className="w-[99%] h-[98%] rounded-[20px] bg-__yellow absolute left-[.5%] top-[8px] z-[-1]"/>
@@ -61,7 +64,7 @@ const Hero = () => {
                 <ScrollAnimation animateIn="slideInLeft" animateOnce={true} delay={0}>
                     <div className='min-[1021px]:max-w-[50%]'>
                         <h1 className="text-[4rem] font-bold">Steps</h1>
-                        <p className=" my-3 leading-10 text-[1.2rem]">Choosing the right fonts for a portfolio website is crucial as it can greatly affect the overall aesthetic and readability. Here are some font pairings and styles that work well for portfolio websites</p>
+                        <p className=" my-3 leading-10 text-[1.2rem]">{t("Hero")}</p>
                         <ul className="flex gap-5 items-center">
                             {LINKS.map((link, index) => <LinkItem link={link} key={index}/>)}
                         </ul>

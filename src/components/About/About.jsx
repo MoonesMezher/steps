@@ -2,37 +2,18 @@ import { FaClock } from "react-icons/fa6";
 import Title from "../shared/Title/Title"
 import { FaCalendarAlt, FaHistory } from 'react-icons/fa'
 import ScrollAnimation from "react-animate-on-scroll";
-import Goal from '../../assets/images/idea.jpeg'
+import Goal from '../../assets/images/Premium Photo _ A group of diverse and happy friends are laughing together They are all wearing casual clothes and look like they are having a great time.jpeg'
 import Girl from '../../assets/images/girl.png'
-
-const CARDS = [
-    {
-        icon: <FaHistory/>,
-        title: "Past",
-        description: "Choosing the right fonts for a portfolio website is crucial as it can greatly affect the",
-        color: "black",
-        textColor: "white"
-    },
-    {
-        icon: <FaClock/>,
-        title: "Present",
-        description: "Choosing the right fonts for a portfolio website is crucial as it can greatly affect the",
-        color: "#eee",
-        textColor: "black"
-    },
-    {
-        icon: <FaCalendarAlt/>,
-        title: "Future",
-        description: "Choosing the right fonts for a portfolio website is crucial as it can greatly affect the",
-        color: "#ffde59",
-        textColor: "black"
-
-    },
-];
+import { useTranslation } from "react-i18next";
+import useLanguageStore from "../../stores/language";
+import './About.css'
 
 const Card = ({ card }) => {
+    const language = useLanguageStore((state) => state.language);
+    const en = language === "en" ? "about-card-en":"";
+
     return (
-        <div className={`rounded-[20px] p-5 shadow-md flex-1`} style={{ backgroundColor: card.color }}>
+        <div className={`rounded-[20px] p-5 shadow-md flex-1 min-[1535px]:h-[160px] ${en}`} style={{ backgroundColor: card.color }}>
             <h2 className="flex items-center gap-5 font-bold text-[1.3rem] mb-2" style={{ color: card.textColor }}>
                 {card.title}
                 {card.icon}
@@ -42,22 +23,49 @@ const Card = ({ card }) => {
     );
 }
 const About = () => {
+    const { t } = useTranslation();
+
+    const CARDS = [
+        {
+            icon: <FaHistory/>,
+            title: t("EachQoute"),
+            description: t("EachQouteText"),
+            color: "black",
+            textColor: "white"
+        },
+        {
+            icon: <FaClock/>,
+            title: t("EachReel"),
+            description: t("EachReelText"),
+            color: "#eee",
+            textColor: "black"
+        },
+        {
+            icon: <FaCalendarAlt/>,
+            title: t("EachStory"),
+            description: t("EachStoryText"),
+            color: "#ffde59",
+            textColor: "black"
+    
+        },
+    ];
+
     return (
         <section className="w-full bg-white py-5" id="about">
             <div className="mb-10 w-full">
                 <div className="flex justify-between items-center flex-col lg:flex-row w-full">
                     <div>
-                        <Title title={'About us'}/>
-                        <p className="text-[1.2rem] leading-10">Choosing the right fonts for a portfolio website is crucial as it can greatly affect the overall aesthetic and readability. Here are some font pairings and styles that work well for portfolio websites.
-                        Choosing the right fonts for a portfolio website is crucial as it can greatly affect the overall aesthetic and readability. Here are some font pairings and styles that work well for portfolio websites</p>
+                        <Title title={t('AboutUs')}/>
+                        <p className="text-[1.2rem] leading-10">{t("AboutUsContent")}</p>
                     </div>
-                    <div className="overflow-hidden mx-auto w-[300px] lg:w-[100%]">
+                    <div className="overflow-hidden mx-auto max:w-[300px] lg:max-w-[500px]">
                         <img src={Girl} alt="girl" className="w-full h-full"/>
                     </div>
                 </div>
-                <div className="flex justify-between items-center gap-10 mt-10 flex-wrap">
+                <Title title={t('WeBelieve')} center={true}/>
+                <div className="flex justify-between items-center gap-10 mt-10 flex-wrap w-full">
                     {CARDS.map((card, index) => 
-                        <ScrollAnimation animateIn="slideInUp" className="h-full md:flex-[30%]" animateOnce={true} delay={index*50} key={index}>
+                        <ScrollAnimation animateIn="slideInUp" className="h-full flex-[100%] md:flex-[30%]" animateOnce={true} delay={index*50} key={index}>
                             <Card card={card} key={index}/>
                         </ScrollAnimation>
                     )}
@@ -67,14 +75,13 @@ const About = () => {
             <div className="relative mb-5">
                 <ScrollAnimation animateIn="slideInLeft" animateOnce={true} delay={0}>
                     <div className="w-full h-[500px] rounded-[50px] overflow-hidden">
-                        <img src={Goal} className="w-full h-full object-cover"/>
+                        <img src={Goal} className="w-full h-full"/>
                     </div>
                 </ScrollAnimation>
                 <ScrollAnimation animateIn="slideInRight" animateOnce={true} delay={50}>
                     <div className="w-full absolute left-0 bottom-[-50px] md:bottom-[-30px] p-5 rounded-[50px] bg-__yellow shadow-md flex flex-col md:flex-row items-center gap-5">
-                        <h1 className="text-nowrap font-bold text-[3rem]">Our Goal</h1>
-                        <p>Choosing the right fonts for a portfolio website is crucial as it can greatly affect the overall aesthetic and readability. Here are some font pairings and styles that work well for portfolio websites.
-                        Choosing the right fonts for a portfolio</p>
+                        <h1 className="text-nowrap font-bold text-[3rem]">{t("OurGoal")}</h1>
+                        <p>{t("OurMission")}</p>
                     </div>
                 </ScrollAnimation>
             </div>

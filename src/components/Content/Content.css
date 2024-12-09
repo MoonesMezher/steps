@@ -4,6 +4,12 @@
     transform: rotate(90deg);
 }
 
+.content-card:hover .content-card-shape-ar  {
+    left: 85%;
+    background-color: white;
+    transform: rotate(90deg);
+}
+
 .content-card:hover .content-card-shape-icon ,
 .content-card:hover .content-card-see-more {
     opacity: 0;

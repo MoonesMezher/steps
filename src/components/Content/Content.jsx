@@ -1,56 +1,70 @@
 import ScrollAnimation from "react-animate-on-scroll";
 import Title from "../shared/Title/Title"
-import { FaBook, FaBookOpen, FaMoon, FaSun } from "react-icons/fa6";
 import './Content.css'
 import FormalGirl from '../../assets/images/formal-girl.png'
 import BoyWithBook from '../../assets/images/boy-with-book.png'
 import BoyWithLaptop from '../../assets/images/boy-with-laptop.png'
 import GirlWithBooks from '../../assets/images/girl-with-books.png'
-
-const CONTENT = [
-    {
-        title: "Qoutes",
-        image: BoyWithLaptop,
-        icon: <FaBookOpen className="duration-300 text-[2rem] ms-16 content-card-shape-icon"/>,
-        description: "Choosing the right fonts for a portfolio website is crucial as it can greatly affect the overall aesthetic and readability. Here are some font pairings and styles that work well for portfolio websites. "
-    },
-    {
-        title: "Writings",
-        image: GirlWithBooks,
-        icon: <FaBook className="duration-300 text-[1.5rem] text-white ms-16 md:ms-8 content-card-shape-icon"/>,
-        description: "Choosing the right fonts for a portfolio website is crucial as it can greatly affect the overall aesthetic and readability. Here are some font pairings and styles that work well for portfolio websites. "
-    },
-    {
-        title: "Self-development",
-        image: FormalGirl,
-        icon: <FaMoon className="duration-300 text-[1.5rem] text-white ms-16 md:ms-8 content-card-shape-icon"/>,
-        description: "Choosing the right fonts for a portfolio website is crucial as it can greatly affect the overall aesthetic and readability. Here are some font pairings and styles that work well for portfolio websites."
-    },
-    {
-        title: "Awareness",
-        image: BoyWithBook,
-        icon: <FaSun className="duration-300 text-[2rem] ms-16 content-card-shape-icon"/>,
-        description: "Choosing the right fonts for a portfolio website is crucial as it can greatly affect the overall aesthetic and readability. Here are some font pairings and styles that work well for portfolio websites." 
-    },
-];
+import { useTranslation } from "react-i18next";
+import useLanguageStore from "../../stores/language";
 
 const ContentItem = ({ content, index }) => {
+    const { t } = useTranslation();
+
+    const language = useLanguageStore((state) => state.language);
+
+    const shapeStyleEn = (index === 0 || index === 3)?'w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] right-[-15%] lg:right-[-20%] bg-white content-card-shape': 'w-[200px] h-[200px] right-[-15%] lg:right-[-15%] bg-black content-card-shape';
+    const shapeStyleAr = (index === 0 || index === 3)?'w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] left-[-15%] lg:left-[-20%] bg-white content-card-shape-ar': 'w-[200px] h-[200px] left-[-15%] lg:left-[-15%] bg-black content-card-shape-ar';
+    const shapeStyle = (language === 'en')? shapeStyleEn: shapeStyleAr;
+
+    const imageContainerStyleEn = (index === 0 || index === 3)?'w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] right-[0%] lg:right-[-100px]': 'w-[200px] h-[200px] right-[0%] lg:right-[-20px]';
+    const imageContainerStyleAr = (index === 0 || index === 3)?'w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] left-[0%] lg:left-[-100px]': 'w-[200px] h-[200px] left-[0%] lg:left-[-20px]';
+    const imageContainerStyle = (language === 'en')? imageContainerStyleEn: imageContainerStyleAr;
+
     return (
         <div className={`relative duration-300 overflow-hidden p-5 rounded-[20px] shadow-md ${(index === 0 || index === 3)? 'h-[200px] lg:h-[300px] bg-[#eee]': 'h-[200px] bg-__yellow'} ${(index === 3)? 'lg:translate-y-[-100px]': ''} cursor-pointer content-card z-10`}>
             <p className="relative z-[2] font-bold">{content.title}</p>
-            <span className="underline text-[.8rem] content-card-see-more duration-300">See more</span>
-            <p className={`${(index === 0 || index === 3)? 'mt-0 lg:mt-5': 'mt-0'} relative z-[2] duration-1000 opacity-0 content-card-description w-[60%] md:w-[75%] lg:w-[60%]`}>{content.description.slice(0, 150)}</p>
-            <div className={`absolute duration-500 flex items-center bottom-0 z-[1] ${(index === 0 || index === 3)?'w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] right-[-15%] lg:right-[-20%] bg-white': 'w-[200px] h-[200px] right-[-15%] lg:right-[-15%] bg-black' } rounded-full content-card-shape`}/>
-            <div className={`absolute duration-500 flex items-center bottom-0 z-[2] ${(index === 0 || index === 3)?'w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] right-[0%] lg:right-[-140px]': 'w-[200px] h-[200px] right-[0%] lg:right-[-80px]' }`}>            
-                <img src={content.image} alt="image" className="w-full h-full lg:w-[50%] object-cover"/>
+            <span className="underline text-[.8rem] content-card-see-more duration-300">{t("SeeMore")}</span>
+            <p className={`${(index === 0 || index === 3)? 'mt-0 lg:mt-5': 'mt-0'} relative z-[2] duration-1000 opacity-0 content-card-description w-[60%] md:w-[75%] lg:w-[60%]`}>{content.description}</p>
+            <div className={`absolute duration-500 flex items-center bottom-0 z-[1] ${shapeStyle} rounded-full`}/>
+            <div className={`absolute duration-500 flex items-center bottom-0 z-[2] ${imageContainerStyle}`}>            
+                <img src={content.image} alt="image" className={`w-full h-full ${(index === 0 || index === 3)? 'lg:w-[70%]':'lg:w-[100%]'}`}/>
             </div>
         </div>
     );
 }
 const Content = () => {
+    const { t } = useTranslation();
+
+    const CONTENT = [
+        {
+            title: t("ContentTitle1"),
+            image: BoyWithLaptop,
+            description: t("ContentDesc1")
+        },
+        {
+            title: t("ContentTitle2"),
+            image: GirlWithBooks,
+            description: t("ContentDesc2")
+        },
+        {
+            title: t("ContentTitle3"),
+            image: FormalGirl,
+            description: t("ContentDesc3")
+        },
+        {
+            title: t("ContentTitle4"),
+            image: BoyWithBook,
+            description: t("ContentDesc4")
+        },
+    ];
+
     return (
         <section className="w-full bg-white py-5" id="content">
-            <Title title={'Our Content'}/>
+            <Title title={t('OurContent')}/>
+            <div className="text-[1.3rem] mb-5">
+                <p className="opacity-80 text-[1.1rem]">{t("ContentText")}</p>
+            </div>
             <div className="flex gap-10 flex-wrap">
                 {CONTENT.map((content, index) => 
                     <ScrollAnimation animateIn="slideInUp" className="h-full flex-[100%] lg:flex-[45%]" animateOnce={true} delay={index*50} key={index}>
