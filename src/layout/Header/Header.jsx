@@ -5,6 +5,9 @@ import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import i18n from '../../i18n';
 import useLanguageStore from '../../stores/language';
+import Logo from '../../assets/images/logo-2.webp'
+import { Link } from 'react-router-dom';
+import generateAltImageText from '../../helpers/generateAltImageText';
 const LinkItem = ({ link: { url, title }, setOpen }) => {
     return (
         <a href={ url } className="header_main_link" onClick={() => setOpen(false)}>
@@ -87,7 +90,11 @@ const Header = () => {
     return (
         <header dir={lang === 'ar'? 'rtl': 'ltr'} className={`w-full fixed left-0 top-0 z-[100] duration-500 ${scroll? 'bg-__yellow shadow-md':'bg-transparent'}`}>
             <div className="w-full flex justify-between items-center mx-auto container py-3">
-                <span className="text-[2rem]">LOGO</span>
+                <div className='w-[60px] h-[60px] bg-white rounded-full'>
+                    <Link to={'/'} onClick={() => window.scrollTo(0, 0)} >
+                        <img src={Logo} alt={generateAltImageText(Logo)} className='w-full h-full'/>
+                    </Link>
+                </div>
                 <ul className="justify-center items-center gap-5 hidden md:flex">
                     {LINKS.map((link, index) => <LinkItem link={link} key={index} setOpen={setOpen}/>)}
                     <LanguageChanger setOpen={setOpen} setLoadingAfterChangeLanguage={setLoadingAfterChangeLanguage}/>
@@ -95,7 +102,7 @@ const Header = () => {
                 <div className="md:hidden" onClick={() => setOpen(!open)}>
                     {open? <FaXmark className="text-[2rem]"/>:<FaBars className="text-[2rem]"/>}
                 </div>
-                <ul className={`justify-center items-center gap-5 flex flex-col fixed ${open? 'left-0':'left-[-100%]'} top-[50px] w-full bg-__yellow z-50 shadow-md p-5 duration-300`}>
+                <ul className={`justify-center items-center gap-5 flex flex-col fixed ${open? 'left-0':'left-[-100%]'} top-[70px] w-full bg-__yellow z-50 shadow-md p-5 duration-300`}>
                     {LINKS.map((link, index) => <LinkItem link={link} key={index} setOpen={setOpen}/>)}
                     <LanguageChanger setOpen={setOpen} setLoadingAfterChangeLanguage={setLoadingAfterChangeLanguage}/>
                 </ul>

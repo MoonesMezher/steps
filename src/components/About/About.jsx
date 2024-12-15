@@ -2,11 +2,12 @@ import { FaClock } from "react-icons/fa6";
 import Title from "../shared/Title/Title"
 import { FaCalendarAlt, FaHistory } from 'react-icons/fa'
 import ScrollAnimation from "react-animate-on-scroll";
-import Goal from '../../assets/images/Premium Photo _ A group of diverse and happy friends are laughing together They are all wearing casual clothes and look like they are having a great time.jpeg'
-import Girl from '../../assets/images/girl.png'
+import Goal from '../../assets/images/girl-with-laptop.webp'
+import Girl from '../../assets/images/girl.webp'
 import { useTranslation } from "react-i18next";
 import useLanguageStore from "../../stores/language";
 import './About.css'
+import generateAltImageText from "../../helpers/generateAltImageText";
 
 const Card = ({ card }) => {
     const language = useLanguageStore((state) => state.language);
@@ -53,13 +54,13 @@ const About = () => {
     return (
         <section className="w-full bg-white py-5" id="about">
             <div className="mb-10 w-full">
-                <div className="flex justify-between items-center flex-col lg:flex-row w-full">
+                <div className="flex justify-between items-center flex-col lg:flex-row w-full mb-10">
                     <div>
                         <Title title={t('AboutUs')}/>
                         <p className="text-[1.2rem] leading-10">{t("AboutUsContent")}</p>
                     </div>
                     <div className="overflow-hidden mx-auto max:w-[300px] lg:max-w-[500px]">
-                        <img src={Girl} alt="girl" className="w-full h-full"/>
+                        <img src={Girl} alt={generateAltImageText(Girl)} className="w-full h-full"/>
                     </div>
                 </div>
                 <Title title={t('WeBelieve')} center={true}/>
@@ -72,10 +73,10 @@ const About = () => {
                 </div>
             </div>
             {/* <Title title={'Our Goal'} center={true}/> */}
-            <div className="relative mb-5">
+            <div className="relative mb-5 mt-[50px]">
                 <ScrollAnimation animateIn="slideInLeft" animateOnce={true} delay={0}>
-                    <div className="w-full h-[500px] rounded-[50px] overflow-hidden">
-                        <img src={Goal} className="w-full h-full"/>
+                    <div className="w-full md:w-[600px] h-[500px] rounded-[50px] overflow-hidden mx-auto translate-y-[-20px]">
+                        <img src={Goal} alt={generateAltImageText(Goal)} className="w-full h-full"/>
                     </div>
                 </ScrollAnimation>
                 <ScrollAnimation animateIn="slideInRight" animateOnce={true} delay={50}>

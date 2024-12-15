@@ -1,12 +1,13 @@
 import { FaInstagram, FaWhatsapp } from 'react-icons/fa6'
-import Phone from '../../assets/images/phone.png'
-import Img1 from '../../assets/images/world.jpeg'
-import Img2 from '../../assets/images/toghter2.jpeg'
+import Phone from '../../assets/images/phone.webp'
+import Img1 from '../../assets/images/man-s.webp'
+import Img2 from '../../assets/images/girl-s.webp'
 import './Hero.css'
 import { useEffect, useState } from 'react'
 import ScrollAnimation from 'react-animate-on-scroll'
 import Extra from '../shared/Extra/Extra'
 import { useTranslation } from 'react-i18next'
+import generateAltImageText from '../../helpers/generateAltImageText'
 
 const SLIDES = [
     Img1,
@@ -73,9 +74,10 @@ const Hero = () => {
                 <ScrollAnimation animateIn="slideInRight" animateOnce={true} delay={0}>
                     <div className='w-fit phone-slider'>
                         <div className='w-[200px] md:w-[300px] relative'>
-                            <img src={Phone} className='w-full h-full phone-image object-cover' alt='phone mockup'/>
-                            {SLIDES.map((slide, index) => <div key={index} className={`absolute left-[7.5px] top-[2.1%] md:top-[1%] z-[-1] w-[185px] md:w-[285px] h-[98%] rounded-[40px] overflow-hidden duration-500 ${(index === currentImage)? 'scale-100 opacity-100':'scale-100 opacity-0'}`}>
-                                <img src={slide} alt='image' className='w-full h-full object-cover'/>
+                        <img src={Phone} className='w-full h-full phone-image object-cover' alt={generateAltImageText(Phone)}/>
+                        <div className='absolute left-[7.5px] top-[2.1%] md:top-[1%] bg-white w-[185px] md:w-[285px] h-[98%] z-[-1] rounded-[40px]'/>
+                        {SLIDES.map((slide, index) => <div key={index} className={`absolute left-[7.5px] top-[2.1%] md:top-[1%] z-[-1] w-[185px] md:w-[285px] h-[98%] rounded-[40px] overflow-hidden duration-500 ${(index === currentImage)? 'scale-100 opacity-100':'scale-100 opacity-0'}`}>
+                                <img src={slide} alt={generateAltImageText(slide)} className='w-full h-full object-cover'/>
                             </div>)}
                         </div>
                     </div>

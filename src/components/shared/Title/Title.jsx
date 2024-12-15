@@ -1,6 +1,6 @@
-const Title = ({ title, center = false }) => {
+const Title = ({ title, center = false, id }) => {
     return (
-        <h1 className={`text-[2rem] font-bold mb-5 ${center? 'text-center':''}`}>{title}</h1>
+        <h1 className={`text-[2rem] font-bold mb-5 ${center? 'text-center':''}`} id={id}>{title}</h1>
     )
 }
 

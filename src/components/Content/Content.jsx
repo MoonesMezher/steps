@@ -1,12 +1,13 @@
 import ScrollAnimation from "react-animate-on-scroll";
 import Title from "../shared/Title/Title"
 import './Content.css'
-import FormalGirl from '../../assets/images/formal-girl.png'
-import BoyWithBook from '../../assets/images/boy-with-book.png'
-import BoyWithLaptop from '../../assets/images/boy-with-laptop.png'
-import GirlWithBooks from '../../assets/images/girl-with-books.png'
+import FormalGirl from '../../assets/images/formal-girl.webp'
+import BoyWithBook from '../../assets/images/boy-with-book.webp'
+import BoyWithLaptop from '../../assets/images/boy-with-laptop.webp'
+import GirlWithBooks from '../../assets/images/girl-with-books.webp'
 import { useTranslation } from "react-i18next";
 import useLanguageStore from "../../stores/language";
+import generateAltImageText from "../../helpers/generateAltImageText";
 
 const ContentItem = ({ content, index }) => {
     const { t } = useTranslation();
@@ -28,7 +29,7 @@ const ContentItem = ({ content, index }) => {
             <p className={`${(index === 0 || index === 3)? 'mt-0 lg:mt-5': 'mt-0'} relative z-[2] duration-1000 opacity-0 content-card-description w-[60%] md:w-[75%] lg:w-[60%]`}>{content.description}</p>
             <div className={`absolute duration-500 flex items-center bottom-0 z-[1] ${shapeStyle} rounded-full`}/>
             <div className={`absolute duration-500 flex items-center bottom-0 z-[2] ${imageContainerStyle}`}>            
-                <img src={content.image} alt="image" className={`w-full h-full ${(index === 0 || index === 3)? 'lg:w-[70%]':'lg:w-[100%]'}`}/>
+                <img src={content.image} alt={generateAltImageText(content.image)} className={`w-full h-full ${(index === 0 || index === 3)? 'lg:w-[70%]':'lg:w-[100%]'}`}/>
             </div>
         </div>
     );
