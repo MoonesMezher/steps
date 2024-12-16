@@ -61,7 +61,7 @@ const Content = () => {
     ];
 
     return (
-        <section className="w-full bg-white py-5" id="content">
+        <section className="w-full bg-white py-5">
             <Title title={t('OurContent')}/>
             <div className="text-[1.3rem] mb-5">
                 <p className="opacity-80 text-[1.1rem]">{t("ContentText")}</p>

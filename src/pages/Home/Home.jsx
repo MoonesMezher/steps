@@ -7,7 +7,9 @@ const Home = () => {
     return (
         <div className="min-h-screen">
             <Hero/>
+            <div className="mb-16" id="about"/>
             <About/>
+            <div className="mb-16" id="content"/>
             <Content/>
             <Contact/>
         </div>

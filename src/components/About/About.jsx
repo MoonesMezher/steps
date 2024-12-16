@@ -52,7 +52,7 @@ const About = () => {
     ];
 
     return (
-        <section className="w-full bg-white py-5" id="about">
+        <section className="w-full bg-white py-5">
             <div className="mb-10 w-full">
                 <div className="flex justify-between items-center flex-col lg:flex-row w-full mb-10">
                     <div>

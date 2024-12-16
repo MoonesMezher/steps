@@ -29,7 +29,8 @@ const Contact = () => {
                     <Extra key={13} size={'w-[20px] h-[20px]'} xPoint={"left-[10%]"} yPoint={"top-[60%]"}/>
                 </div>
             </div>
-            <Title title={t('ContactUs')} center={true} id="contact"/>
+            <div className="mb-16" id="contact"/>
+            <Title title={t('ContactUs')} center={true}/>
             <div className="text-center text-[1.3rem]">
                 <p className="mb-2">{t("ContactHeader")}</p>
                 <p className="opacity-80 text-[1.1rem]">{t("ContactHeaderText")}</p>
