@@ -4,16 +4,17 @@ import { useTranslation } from "react-i18next";
 import useLanguageStore from "../../stores/language";
 import Logo from '../../assets/images/logo-2.webp'
 import generateAltImageText from "../../helpers/generateAltImageText";
+import { instagram, phone } from "../../constant/infocontact";
 
 const NOW = new Date().getFullYear();
 
 const LINKS = [
     {
-        url: '/s',
+        url: instagram,
         icon: <FaInstagram className="text-[1.7rem]"/>
     },
     {
-        url: '/s',
+        url: phone,
         icon: <FaWhatsapp className="text-[1.7rem]"/>
     }
 ];

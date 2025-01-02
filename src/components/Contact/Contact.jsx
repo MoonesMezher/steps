@@ -7,6 +7,7 @@ import Extra from "../shared/Extra/Extra"
 import { useTranslation } from "react-i18next"
 import useLanguageStore from "../../stores/language"
 import generateAltImageText from "../../helpers/generateAltImageText"
+import { instagram, phone } from "../../constant/infocontact"
 
 const Contact = () => {
     const { t } = useTranslation();
@@ -39,7 +40,7 @@ const Contact = () => {
                 <ScrollAnimation animateIn="slideInLeft" className="md:w-[40%]" animateOnce={true}>
                     <div className="mx-auto sm:w-[90%] relative overflow-hidden">
                         <img src={GirlInsta} alt={generateAltImageText(GirlInsta)} className="w-full h-full"/>
-                        <a href="/" target="_blank" className="absolute h-fit duration-300 sm:hover:scale-105 left-[40%] sm:left-[10px] bottom-0 sm:top-[10px] text-center px-3 py-2 sm:px-5 sm:py-4 font-bold bg-black text-white rounded-md">
+                        <a href={instagram} target="_blank" className="absolute h-fit duration-300 sm:hover:scale-105 left-[40%] sm:left-[10px] bottom-0 sm:top-[10px] text-center px-3 py-2 sm:px-5 sm:py-4 font-bold bg-black text-white rounded-md">
                             {t("VisitNow")}
                         </a>
                     </div>
@@ -47,7 +48,7 @@ const Contact = () => {
                 <ScrollAnimation animateIn="slideInRight" className="md:w-[40%]" animateOnce={true}>
                     <div className="mx-auto sm:w-[90%] relative overflow-hidden">
                         <img src={GirlWhatsup} alt={generateAltImageText(GirlWhatsup)} className="w-full h-full"/>
-                        <a href="/" target="_blank" className="absolute h-fit duration-300 sm:hover:scale-105 right-[40%] sm:right-[10px] bottom-0 sm:top-[10px] text-center px-3 py-2 sm:px-5 sm:py-4 font-bold bg-black text-white rounded-md">
+                        <a href={phone} target="_blank" className="absolute h-fit duration-300 sm:hover:scale-105 right-[40%] sm:right-[10px] bottom-0 sm:top-[10px] text-center px-3 py-2 sm:px-5 sm:py-4 font-bold bg-black text-white rounded-md">
                             {t("CallNow")}
                         </a>
                     </div>

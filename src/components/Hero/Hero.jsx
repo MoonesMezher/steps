@@ -8,6 +8,7 @@ import ScrollAnimation from 'react-animate-on-scroll'
 import Extra from '../shared/Extra/Extra'
 import { useTranslation } from 'react-i18next'
 import generateAltImageText from '../../helpers/generateAltImageText'
+import { instagram, phone } from '../../constant/infocontact'
 
 const SLIDES = [
     Img1,
@@ -16,11 +17,11 @@ const SLIDES = [
 
 const LINKS = [
     {
-        url: '/s',
+        url: instagram,
         icon: <FaInstagram className="text-[1.7rem]"/>
     },
     {
-        url: '/s',
+        url: phone,
         icon: <FaWhatsapp className="text-[1.7rem]"/>
     }
 ];
